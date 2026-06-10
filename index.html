@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Extrator de Portarias PBPrev</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script> <!--biblioteca para PDF-->
+    <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script> <!--biblioteca para .docx-->
+
+</head>
+
+<body>
+
+    <h1>Extrator de Portarias PBPrev</h1>
+
+    <div class="container">
+
+        <div id="dropzone">
+            Arraste o Diário Oficial (PDF) aqui
+        </div>
+
+        <div class="inputs">
+
+            <label>Página inicial</label>
+            <input type="number" id="paginaInicial">
+
+            <label>Página final</label>
+            <input type="number" id="paginaFinal">
+
+        </div>
+
+        <div class="assinatura">
+
+            <h3>Dados da assinatura:</h3>
+
+            <div class="campo-assinatura">
+                <label for="responsavelAssinatura">Responsável pela assinatura</label>
+                
+                <input
+                    type="text"
+                    id="responsavelAssinatura"
+                    list="listaResponsaveis"
+                    placeholder="Digite ou selecione o responsável"
+                >
+
+                <datalist id="listaResponsaveis">
+                    <option value="JOSÉ ANTONIO COÊLHO CAVALCANTI"></option>
+                    <option value="FREDERICO AUGUSTO CAVALCANTI BERNARDO"></option>
+                </datalist>
+
+
+            </div>
+
+            <div class="campo-assinatura">
+                <label for="cargoAssinatura">Cargo</label>
+                <input
+                    type="text"
+                    id="cargoAssinatura"
+                    list="listaCargos"
+                    placeholder="Digite ou selecione o cargo do responsável"
+                >
+
+                <datalist id="listaCargos">
+                    <option value="Presidente da PBPrev"></option>
+                    <option value="Presidente da PBPrev em exercício"></option>
+                </datalist>
+            </div>
+
+            <div class="linha-assinatura">
+
+                <div class="campo-assinatura">
+                    <label for="numeroDiario">Nº do Diário</label>
+                    <input
+                        type="text"
+                        id="numeroDiario"
+                        placeholder="Ex.: 18.586"
+                    >
+                </div>
+
+                <div class="campo-assinatura">
+                    <label for="dataDiario">Data do Diário</label>
+                    <input
+                        type="date"
+                        id="dataDiario"
+                    >
+                </div>
+
+            </div>
+
+            <button id="capturaNumeroEData" class="botao-centralizado">Capturar número e data do diário</button>
+
+            <div class="preview-assinatura">
+                <strong>Prévia da assinatura:</strong>
+                <pre id="previewAssinatura">Preencha os campos acima.</pre>
+            </div>
+
+        </div>
+
+        <button id="processar" class="botao-centralizado">Extrair Portarias</button>
+
+    </div>
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
